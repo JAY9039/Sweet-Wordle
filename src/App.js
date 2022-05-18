@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Wordle from './components/Wordle.js'
+
 
 function App() {
 
@@ -30,7 +32,8 @@ function App() {
       
       {/* we will not output the solution until we have a value for the solution, */}
       {/* the right side off && will not work(print) until the left is true */}
-      {solution && <div> Solution is: {solution} </div>}
+
+      {solution && <Wordle solution={solution} />}
 
     </div>
   );
