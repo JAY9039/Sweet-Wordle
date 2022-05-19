@@ -1,45 +1,39 @@
-import { useEffect, useState } from "react";
-import Wordle from './components/Wordle.js'
-
+import { useEffect, useState } from 'react'
+import Wordle from './components/Wordle'
 
 function App() {
-
+  
   //solution starts with null but then pichs a random integer(data) form the below json file
   const [solution, setSolution] = useState(null)
+  
   //  this hook will run when the componets first renders
  
-  useEffect(()=> {
+  useEffect(() => {
     fetch('http://localhost:3001/solutions')
-    .then(res => res.json())
-    .then(json => {
-      //  console.log(json)
-      // we will get the random number between 0 and 14(total 15 words are in our db)
+      .then(res => res.json())
+      .then(json => {
+//       //  console.log(json)
+//       // we will get the random number between 0 and 14(total 15 words are in our db)
 
       const randomSolution = json[Math.floor(Math.random()*json.length)]
+        setSolution(randomSolution.word)
+      })
+  }, [setSolution])
       // updating the state
       // by using .word well will be grabbing only the word property of the solution
-      setSolution(randomSolution.word)
-      })
 
-  }, [setSolution])
+return (
+  <div className="App">
+    <h1>Wordle Game</h1>
+{/*  we will not output the solution until we have a value for the solution */}
+{/*  the right side off && will not work(print) until the left is true */}
 
-
-
-  return (
-    <div className="App">
-      <h1>WordLe GaMe</h1>
-      <h1>Lets Play</h1>
-      
-      {/* we will not output the solution until we have a value for the solution, */}
-      {/* the right side off && will not work(print) until the left is true */}
-
-      {solution && <Wordle solution={solution} />}
-
+    {solution && <Wordle solution={solution} />}
     </div>
-  );
-}
-
-export default App;
+    )
+  }
+  
+  export default App
 
  
  /* 
