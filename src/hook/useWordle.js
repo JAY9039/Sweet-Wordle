@@ -43,9 +43,28 @@ const useWordle = (solution) => {
       return {key: l, color: 'grey'}
     })
 
+   // find Green letters
+   formattedGuess.forEach((l, i) =>
+     {
+       if (solution[i] === l.key) 
+       {
+         formattedGuess[i].color = 'green'
+         solutionArray[i] = null
+       }
+     })
+    
+    // find Yellow letters
+    formattedGuess.forEach((l, i) => 
+    {
+      if (solutionArray.includes(l.key) && l.color !== 'green') 
+     {
+      formattedGuess[i].color = 'yellow'
+      solutionArray[solutionArray.indexOf(l.key)] = null
+     }
+    })
 
-
-  }
+ return formattedGuess
+}
 
 //     //add new guess to the guess state
 //     // update the isCorrect State if the guess is 
@@ -57,25 +76,30 @@ const useWordle = (solution) => {
     //handle key event and track current guess
     // if the user press the Enter button, then add the New Guess
   const handleKeyup = ({ key }) => {
-    if (key === 'Enter') {
+    if (key === 'Enter') 
+    {
       // only add guess if turn is less than 5
       if (turn > 5) {
         console.log('you used all your guesses!')
         return
       }
+    
       // do not allow duplicate words
       if (history.includes(currentGuess)) {
         console.log('you already tried that word.')
         return
       }
-    // Check Word is 5 char Long
-    if (currentGuess.length !== 5) {
+    
+     // Check Word is 5 char Long
+     if (currentGuess.length !== 5) {
         console.log('word must be 5 chars.')
         return
       }
+
       //call this function if and only if all the if block is bypassed
-      formatGuess()
-    }
+     const formatted = formatGuess()
+          console.log(formatted)
+   }
 
     //deleting the letter if typed wrong
 
