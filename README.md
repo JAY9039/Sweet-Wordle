@@ -1,6 +1,6 @@
 # Sweet-Wordle
 
-#-> Just a small word Guessing game using ReactJs<-
+## Just a small word Guessing game using ReactJs
 
 > ### Description :
 > >>
@@ -12,7 +12,9 @@
 1. `https://github.com/JAY9039/Sweet-Wordle.git` 
 2. `cd Sweet-Wordle`
 3. `npm install`
-!!! note You will need to start the json-server and react app saperately
+
+`NOTE: You will need to start the json-server and react app saperately`
+
 4. `json-server ./data/db.json --port 3001`
 5. `npm start start`
 
@@ -46,7 +48,8 @@
 > 5.  Checking submitted words:
 > 6. Ending the game.
  
-!!! info when the guessed word fully matches the solution
+- When the guessed word fully matches the solution
       - modal to say '🔥🔥🔥  You Win!  🔥🔥🔥 '
-!!! info  when the user runs out of guesses
+      
+- When the user runs out of guesses
       - modal to say '👎 You Lost, You iz Noob Peep 👎'
