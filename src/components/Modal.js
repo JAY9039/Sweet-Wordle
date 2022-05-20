@@ -14,6 +14,7 @@ export default function Modal({ isCorrect, solution, turn }) {
         <div>
           <h1>👎 You Lost, You iz Noob Peep 👎</h1>
           <p className="solution">{solution}</p>
+          {/* <p> Bye Bye Ji </p> */}
           <p> Better Luck Next Time </p>
         </div>
       )}

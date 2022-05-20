@@ -24,7 +24,7 @@ function App() {
 
 return (
   <div className="App">
-    <h1>Wordle Game</h1>
+    <h1>🔥🔥 SWEET WORDLE GAME 🔥🔥</h1>
 {/*  we will not output the solution until we have a value for the solution */}
 {/*  the right side off && will not work(print) until the left is true */}
 
